@@ -9,6 +9,7 @@ import unittest
 
 from simple_py_ioc.configuration_loader import ConfigurationLoader
 from dependency_injector.containers import DynamicContainer
+from dependency_injector.injections import inject
 
 
 class ConfigurationLoaderTestCase(unittest.TestCase):
@@ -19,7 +20,7 @@ class ConfigurationLoaderTestCase(unittest.TestCase):
     def test_configure_hello_string(self):
         configuration = {
             'simple_service': {
-                'factory_class': 'dependency_injector.providers.base.Object',
+                'factory_class': 'dependency_injector.providers.Object',
                 'factory_arguments': 'Hello, World!'
             }
         }
@@ -33,7 +34,7 @@ class ConfigurationLoaderTestCase(unittest.TestCase):
     def test_configure_ultimate_int(self):
         configuration = {
             'simple_service': {
-                'factory_class': 'dependency_injector.providers.base.Object',
+                'factory_class': 'dependency_injector.provider.Object',
                 'factory_arguments': 42
             }
         }
