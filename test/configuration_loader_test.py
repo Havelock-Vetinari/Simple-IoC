@@ -30,6 +30,20 @@ class ConfigurationLoaderTestCase(unittest.TestCase):
 
         self.assertEqual(container.simple_service(), 'Hello, World!')
 
+    def test_configure_ultimate_int(self):
+        configuration = {
+            'simple_service': {
+                'factory_class': 'dependency_injector.providers.base.Object',
+                'factory_arguments': 42
+            }
+        }
+
+        configuration_loader = ConfigurationLoader()
+        configuration_loader.load_services_configuration(configuration)
+        container = configuration_loader.get_container()
+
+        self.assertEqual(container.simple_service(), 42)
+
 
 if __name__ == '__main__':
     unittest.main()

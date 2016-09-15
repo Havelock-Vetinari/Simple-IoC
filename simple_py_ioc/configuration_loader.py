@@ -15,7 +15,9 @@ class ConfigurationLoader:
         self.container = DynamicContainer()
 
     def load_services_configuration(self, configuration):
-        self.container.simple_service = Object('Hello, World!')
+        for service_name, service_info in configuration.items():
+            provider_arguments = service_info['factory_arguments']
+            setattr(self.container, service_name, Object(provider_arguments))
 
     def get_container(self):
         return self.container
