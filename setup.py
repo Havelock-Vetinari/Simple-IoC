@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='SimplePythonIoC',
+    name='simple-python-ioc',
     version='1.0.0',
     packages=['simple_py_ioc'],
     url='',
